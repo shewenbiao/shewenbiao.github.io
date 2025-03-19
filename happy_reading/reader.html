@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>快乐读书 - 阅读器</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/app.css">
+    <style>
+        .reader-top-bar, .reader-bottom-bar {
+            position: fixed;
+            left: 0;
+            right: 0;
+            height: 50px;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            padding: 0 16px;
+            color: white;
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+        
+        .reader-top-bar {
+            top: 0;
+        }
+        
+        .reader-bottom-bar {
+            bottom: 0;
+            justify-content: space-between;
+        }
+        
+        .hide-bar {
+            transform: translateY(-100%);
+        }
+        
+        .hide-bottom-bar {
+            transform: translateY(100%);
+        }
+        
+        .reader-chapter-title {
+            font-size: 12px;
+            opacity: 0.8;
+        }
+        
+        .reader-settings {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: white;
+            padding: 16px;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+            box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+            z-index: 200;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .reader-settings.show {
+            transform: translateY(0);
+        }
+        
+        .font-size-control {
+            display: flex;
+            align-items: center;
+        }
+        
+        .font-size-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .theme-option {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            margin-right: 12px;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+        
+        .theme-option.active {
+            border-color: #1e88e5;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <!-- 阅读器顶部控制栏 -->
+        <div class="reader-top-bar" id="topBar">
+            <div class="flex items-center">
+                <i class="fas fa-arrow-left mr-4" onclick="window.history.back()"></i>
+                <div>
+                    <div>三体</div>
+                    <div class="reader-chapter-title">第八章 科学边界</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 阅读内容 -->
+        <div class="reader-container" id="readerContent" onclick="toggleBars()">
+            <h2 class="text-xl font-bold mb-6 text-center">第八章 科学边界</h2>
+            
+            <p class="mb-4">叶文洁终于明白了"红岸"工程的真正用途。但她的疑惑增多了："红岸"作为一个军事项目，仅靠时断时续地监听这样一些无序的宇宙电波，有什么用处呢？而如果是搜寻地外文明，这个功率又太低了。对这种情况，杨卫宁给出他的看法：这只是一种可能性，世界上有不少类似的装置，雷达工作中也不断接收到无规律的信号，研究这些信号成为一种高雅的消遣，不需要太多的设备，只需几台计算机。</p>
+            
+            <p class="mb-4">杨卫宁又告诉叶文洁，基地的最早设立其实是为监听美国核潜艇在黄海的活动，后被发现不合适才改为太阳监听站，现在好像又要进行新的转折。他说，对于领导而言，也许前两项都是骗取拨款的幌子……他总是用一种漫不经心的散漫态度说这些，很难让她相信这些看法的真伪。</p>
+            
+            <p class="mb-4">但叶文洁自己对宇宙深处的无序电波越来越着迷，她在干校中用双手推碾子，从肉体的劳动中悟出了最基本的物理规律，这让她把对物理世界的思考提高到一个新的层次，她认为，自己对于宇宙的认识，比起有些大物理学家不遑多让，这是一种感觉，她也无法解释清楚。这是一种本能，一种穿透力，一种升华。</p>
+            
+            <p class="mb-4">雷志成回来了，叶文洁敏感地觉察到，他对自己的态度十分微妙，像是某种怜悯，又似乎有所期待。很快，叶文洁得知，"红岸"项目有了重大变化，要与他们这些年轻的大学生一起大干一场。据说，由于太阳监听得到的成果极其有限，上级要求基地在两年内实现一个新的突破，否则就撤销。基地开始在宇宙无序电波上加大力度研究。</p>
+            
+            <p class="mb-4">她的工作变得单调起来，大部分时间是在计算机上完成分析工作，从一大堆超出背景噪声的信号中寻找有规律的信息，判断是否为文明发出。每天她都要记录许多小小的发现，然后提交报告进行讨论，她有种感觉：自己对宇宙深处多了一种特殊的敏感，似能感知到一些他人察觉不到的事物。</p>
+            
+            <p class="mb-4">这一年，文化大革命进入最混乱的阶段，全国各地的武斗升级，电台中的战争消息一个接一个，叶文洁却对此麻木了，她一心只想着自己的研究，生活过得像机械一样单调，却心无旁骛。她的数理基础很好，甚至超过了那些名校毕业的才子，也许，这得益于她曧的悉心教导。那可怜的父亲啊……研究使她暂时不去想这些事。</p>
+            
+            <p class="mb-4">杨卫宁经常来看她，他们无事时便一起下围棋，他有时会把工程上遇到的问题，与她一同探讨。她接到的任务也越来越复杂，不再只是简单地寻找信号模式，甚至偶尔被问询对某个科学难题的看法，每次杨卫宁总是若有所思地点头听完。</p>
+            
+            <p class="mb-4">不知何时，一个想法在叶文洁的脑中种下了：如果地球文明向宇宙发送信息呢？人类有这种愿望已经很久了，无数的神话故事讲述着神仙世界与人间的通信，自古以来，人类总是试图与宇宙中未知的力量对话。现代科学观念认为这种愿望是荒谬的，但叶文洁出于直觉认为，宇宙中的智慧生命，肯定会有相互通信的强烈需求。</p>
+            
+            <p class="mb-4">这时的"红岸"工程正在原接收天线基础上加建一部新的大型天线，这将使"红岸"不仅能接收宇宙信号，还能向宇宙发射信号。但出于保密和电磁干扰的考虑，这部分的工作进行得极其谨慎……</p>
+        </div>
+        
+        <!-- 阅读器底部控制栏 -->
+        <div class="reader-bottom-bar" id="bottomBar">
+            <div class="text-sm">31%</div>
+            <div class="flex space-x-6">
+                <i class="fas fa-list-ul"></i>
+                <i class="fas fa-bookmark"></i>
+                <i class="fas fa-cog" id="settingsBtn"></i>
+            </div>
+        </div>
+        
+        <!-- 设置面板 -->
+        <div class="reader-settings" id="settingsPanel">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="font-medium">设置</h3>
+                <i class="fas fa-times" id="closeSettingsBtn"></i>
+            </div>
+            
+            <div class="mb-6">
+                <h4 class="text-sm text-gray-500 mb-3">字体大小</h4>
+                <div class="font-size-control flex items-center justify-between">
+                    <button class="font-size-btn">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                    <span class="mx-4">Aa</span>
+                    <button class="font-size-btn">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="mb-6">
+                <h4 class="text-sm text-gray-500 mb-3">背景主题</h4>
+                <div class="flex">
+                    <div class="theme-option active" style="background-color: #f7f4e9;"></div>
+                    <div class="theme-option" style="background-color: #000000; color: #cccccc;"></div>
+                    <div class="theme-option" style="background-color: #e0e0e0;"></div>
+                    <div class="theme-option" style="background-color: #d2ebd8;"></div>
+                </div>
+            </div>
+            
+            <div>
+                <h4 class="text-sm text-gray-500 mb-3">阅读进度</h4>
+                <input type="range" class="w-full" min="0" max="100" value="31">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 控制顶部和底部栏的显示与隐藏
+        function toggleBars() {
+            const topBar = document.getElementById('topBar');
+            const bottomBar = document.getElementById('bottomBar');
+            
+            if (topBar.classList.contains('hide-bar')) {
+                topBar.classList.remove('hide-bar');
+                bottomBar.classList.remove('hide-bottom-bar');
+            } else {
+                topBar.classList.add('hide-bar');
+                bottomBar.classList.add('hide-bottom-bar');
+            }
+        }
+        
+        // 设置面板控制
+        document.addEventListener('DOMContentLoaded', function() {
+            const settingsBtn = document.getElementById('settingsBtn');
+            const closeSettingsBtn = document.getElementById('closeSettingsBtn');
+            const settingsPanel = document.getElementById('settingsPanel');
+            
+            settingsBtn.addEventListener('click', function() {
+                settingsPanel.classList.add('show');
+            });
+            
+            closeSettingsBtn.addEventListener('click', function() {
+                settingsPanel.classList.remove('show');
+            });
+            
+            // 主题切换
+            const themeOptions = document.querySelectorAll('.theme-option');
+            const readerContent = document.getElementById('readerContent');
+            
+            themeOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    // 移除所有主题的active类
+                    themeOptions.forEach(opt => opt.classList.remove('active'));
+                    // 添加当前选中主题的active类
+                    this.classList.add('active');
+                    
+                    // 设置阅读背景颜色
+                    readerContent.style.backgroundColor = this.style.backgroundColor;
+                    
+                    // 如果是黑色主题，文字颜色设为浅色
+                    if (this.style.backgroundColor === 'rgb(0, 0, 0)') {
+                        readerContent.style.color = '#cccccc';
+                    } else {
+                        readerContent.style.color = '#333333';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html> 

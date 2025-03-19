@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>快乐读书 - 书架</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- 状态栏 -->
+        <div class="status-bar">
+            <div class="status-bar-time">9:41</div>
+            <div class="status-bar-icons">
+                <i class="fas fa-signal"></i>
+                <i class="fas fa-wifi"></i>
+                <i class="fas fa-battery-full"></i>
+            </div>
+        </div>
+        
+        <!-- 内容区域 -->
+        <div class="content">
+            <!-- 标题栏 -->
+            <div class="flex justify-between items-center mb-6">
+                <h1 class="text-xl font-bold">我的书架</h1>
+                <div class="flex space-x-4">
+                    <i class="fas fa-search text-gray-600"></i>
+                    <i class="fas fa-plus text-gray-600"></i>
+                </div>
+            </div>
+            
+            <!-- 分类导航 -->
+            <div class="category-nav mb-6">
+                <div class="category-item active" onclick="switchCategory(this)">全部</div>
+                <div class="category-item" onclick="switchCategory(this)">最近阅读</div>
+                <div class="category-item" onclick="switchCategory(this)">收藏</div>
+                <div class="category-item" onclick="switchCategory(this)">已购</div>
+                <div class="category-item" onclick="switchCategory(this)">免费</div>
+            </div>
+            
+            <!-- 阅读进度卡片 -->
+            <div class="card mb-6">
+                <div class="flex items-center mb-3">
+                    <div class="book-cover w-12 h-16 mr-3">
+                        <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" class="w-full h-full object-cover" alt="三体">
+                    </div>
+                    <div>
+                        <div class="font-medium">三体</div>
+                        <div class="text-xs text-gray-500">阅读至第8章 · 已完成31%</div>
+                    </div>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-1.5">
+                    <div class="bg-blue-500 h-1.5 rounded-full" style="width: 31%"></div>
+                </div>
+                <button class="mt-3 btn btn-primary w-full" onclick="navigateToReader()">
+                    <i class="fas fa-book-open mr-2"></i>继续阅读
+                </button>
+            </div>
+            
+            <!-- 书架网格 -->
+            <h2 class="font-medium mb-4">全部书籍</h2>
+            <div class="bookshelf-grid">
+                <div class="bookshelf-item" onclick="navigateToBookDetail()">
+                    <div class="bookshelf-cover">
+                        <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" class="w-full h-full object-cover" alt="三体">
+                    </div>
+                    <div class="bookshelf-title">三体</div>
+                </div>
+                <div class="bookshelf-item">
+                    <div class="bookshelf-cover">
+                        <img src="https://images.unsplash.com/photo-1587876931567-564ce588bfbd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" class="w-full h-full object-cover" alt="人类简史">
+                    </div>
+                    <div class="bookshelf-title">人类简史</div>
+                </div>
+                <div class="bookshelf-item">
+                    <div class="bookshelf-cover">
+                        <img src="https://images.unsplash.com/photo-1532012197267-da84d127e765?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" class="w-full h-full object-cover" alt="解忧杂货店">
+                    </div>
+                    <div class="bookshelf-title">解忧杂货店</div>
+                </div>
+                <div class="bookshelf-item">
+                    <div class="bookshelf-cover">
+                        <img src="https://images.unsplash.com/photo-1543002588-bfa74002ed7e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" class="w-full h-full object-cover" alt="追风筝的人">
+                    </div>
+                    <div class="bookshelf-title">追风筝的人</div>
+                </div>
+                <div class="bookshelf-item">
+                    <div class="bookshelf-cover">
+                        <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" class="w-full h-full object-cover" alt="活着">
+                    </div>
+                    <div class="bookshelf-title">活着</div>
+                </div>
+                <div class="bookshelf-item">
+                    <div class="bookshelf-cover">
+                        <img src="https://images.unsplash.com/photo-1621351183012-e2f9972dd9bf?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" class="w-full h-full object-cover" alt="置身事内">
+                    </div>
+                    <div class="bookshelf-title">置身事内</div>
+                </div>
+                <div class="bookshelf-item">
+                    <div class="bookshelf-cover">
+                        <img src="https://images.unsplash.com/photo-1610116306796-6fea9f4fae38?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" class="w-full h-full object-cover" alt="被讨厌的勇气">
+                    </div>
+                    <div class="bookshelf-title">被讨厌的勇气</div>
+                </div>
+                <div class="bookshelf-item">
+                    <div class="bookshelf-cover">
+                        <img src="https://images.unsplash.com/photo-1594312915251-48db9280c8f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" class="w-full h-full object-cover" alt="心理学与生活">
+                    </div>
+                    <div class="bookshelf-title">心理学与生活</div>
+                </div>
+                <div class="bookshelf-item">
+                    <div class="bookshelf-cover">
+                        <img src="https://images.unsplash.com/photo-1589998059171-988d887df646?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" class="w-full h-full object-cover" alt="深度工作">
+                    </div>
+                    <div class="bookshelf-title">深度工作</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 底部导航栏 -->
+        <div class="tab-bar">
+            <a href="home.html" class="tab-item">
+                <i class="fas fa-home"></i>
+                <span>首页</span>
+            </a>
+            <a href="bookshelf.html" class="tab-item active">
+                <i class="fas fa-book"></i>
+                <span>书架</span>
+            </a>
+            <a href="discover.html" class="tab-item">
+                <i class="fas fa-compass"></i>
+                <span>发现</span>
+            </a>
+            <a href="profile.html" class="tab-item">
+                <i class="fas fa-user"></i>
+                <span>我的</span>
+            </a>
+        </div>
+    </div>
+    
+    <script src="js/app.js"></script>
+</body>
+</html> 

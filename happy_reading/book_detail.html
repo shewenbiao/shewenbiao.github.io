@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>快乐读书 - 书籍详情</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- 状态栏 -->
+        <div class="status-bar">
+            <div class="status-bar-time">9:41</div>
+            <div class="status-bar-icons">
+                <i class="fas fa-signal"></i>
+                <i class="fas fa-wifi"></i>
+                <i class="fas fa-battery-full"></i>
+            </div>
+        </div>
+        
+        <!-- 内容区域 -->
+        <div class="content">
+            <!-- 返回按钮 -->
+            <div class="mb-4">
+                <button onclick="window.history.back()" class="flex items-center text-gray-600">
+                    <i class="fas fa-arrow-left mr-2"></i>
+                    <span>返回</span>
+                </button>
+            </div>
+            
+            <!-- 书籍基本信息 -->
+            <div class="book-detail-header">
+                <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" class="book-detail-cover" alt="三体">
+                <div class="book-detail-info">
+                    <h1 class="book-detail-title">三体</h1>
+                    <div class="book-detail-author">刘慈欣</div>
+                    <div class="book-detail-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span class="text-gray-600 ml-1">4.8 (12,305人评价)</span>
+                    </div>
+                    <div class="flex space-x-2 mb-3">
+                        <span class="bg-blue-100 text-blue-700 text-xs px-2 py-1 rounded">科幻</span>
+                        <span class="bg-blue-100 text-blue-700 text-xs px-2 py-1 rounded">外星文明</span>
+                        <span class="bg-blue-100 text-blue-700 text-xs px-2 py-1 rounded">硬科幻</span>
+                    </div>
+                    <div class="text-gray-700 text-sm">
+                        <i class="fas fa-award text-yellow-500 mr-1"></i>
+                        <span>雨果奖获奖作品</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 操作按钮 -->
+            <div class="flex space-x-3 my-6">
+                <button class="btn btn-primary flex-1" onclick="navigateToReader()">
+                    <i class="fas fa-book-open mr-2"></i>开始阅读
+                </button>
+                <button class="btn btn-outline flex-1">
+                    <i class="fas fa-headphones mr-2"></i>试听
+                </button>
+            </div>
+            
+            <!-- 简介 -->
+            <div class="mb-6">
+                <h2 class="font-medium mb-3">内容简介</h2>
+                <div class="text-sm text-gray-700">
+                    <p class="mb-2">文化大革命如火如荼进行的同时，军方探寻外星文明的绝秘计划"红岸工程"取得了突破性进展。但在按下发射键的那一刻，历经劫难的叶文洁没有意识到，她彻底改变了人类的命运。</p>
+                    <p class="mb-2">地球文明向宇宙发出的第一声啼鸣，以太阳为中心，以光速向宇宙深处飞驰……</p>
+                    <p>四光年外，三体文明接收到了地球发来的信息。在运用超技术锁死地球人的基础科学之后，三体人的庞大舰队开始向地球进发……</p>
+                </div>
+            </div>
+            
+            <!-- 目录 -->
+            <div class="mb-6">
+                <h2 class="font-medium mb-3">目录</h2>
+                <div class="space-y-2 text-sm">
+                    <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                        <span>第一章 科学边界</span>
+                        <span class="text-gray-500">27分钟</span>
+                    </div>
+                    <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                        <span>第二章 疯狂年代</span>
+                        <span class="text-gray-500">32分钟</span>
+                    </div>
+                    <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                        <span>第三章 红岸基地</span>
+                        <span class="text-gray-500">30分钟</span>
+                    </div>
+                    <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                        <span>第四章 宇宙闪烁</span>
+                        <span class="text-gray-500">25分钟</span>
+                    </div>
+                    <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                        <span>第五章 叶文洁</span>
+                        <span class="text-gray-500">28分钟</span>
+                    </div>
+                    <div class="text-center text-blue-500 mt-2">
+                        <button>查看全部章节 (共23章)</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 书评 -->
+            <div class="mb-6">
+                <div class="flex justify-between items-center mb-3">
+                    <h2 class="font-medium">书友评价</h2>
+                    <a href="#" class="text-sm text-gray-500">全部评价(1203)</a>
+                </div>
+                <div class="space-y-4">
+                    <div class="border-b pb-4">
+                        <div class="flex justify-between mb-2">
+                            <div class="flex items-center">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" class="w-8 h-8 rounded-full mr-2" alt="用户头像">
+                                <span class="text-sm font-medium">李明</span>
+                            </div>
+                            <div class="text-yellow-500">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-700">刘慈欣的想象力令人震撼，"黑暗森林法则"的提出让我彻夜难眠。这不仅是一部科幻小说，更是对人性的深刻思考。三部曲必须一口气读完！</p>
+                    </div>
+                    <div class="border-b pb-4">
+                        <div class="flex justify-between mb-2">
+                            <div class="flex items-center">
+                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" class="w-8 h-8 rounded-full mr-2" alt="用户头像">
+                                <span class="text-sm font-medium">张小花</span>
+                            </div>
+                            <div class="text-yellow-500">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-700">第一部相对慢热，但后面的情节发展非常精彩。读完整个系列后回头看，才发现第一部的伏笔铺垫多么巧妙。强烈推荐！</p>
+                    </div>
+                </div>
+                <button class="w-full py-2 mt-4 text-blue-500 border border-blue-500 rounded-full text-sm">
+                    写评价
+                </button>
+            </div>
+            
+            <!-- 相关推荐 -->
+            <div>
+                <h2 class="font-medium mb-3">相关推荐</h2>
+                <div class="flex space-x-4 overflow-x-auto pb-2">
+                    <div class="flex-shrink-0 w-28">
+                        <div class="book-cover h-40 mb-2">
+                            <img src="https://images.unsplash.com/photo-1587876931567-564ce588bfbd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" class="w-full h-full object-cover" alt="书籍封面">
+                        </div>
+                        <div class="text-sm font-medium">三体Ⅱ</div>
+                        <div class="text-xs text-gray-500">刘慈欣</div>
+                    </div>
+                    <div class="flex-shrink-0 w-28">
+                        <div class="book-cover h-40 mb-2">
+                            <img src="https://images.unsplash.com/photo-1532012197267-da84d127e765?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" class="w-full h-full object-cover" alt="书籍封面">
+                        </div>
+                        <div class="text-sm font-medium">三体Ⅲ</div>
+                        <div class="text-xs text-gray-500">刘慈欣</div>
+                    </div>
+                    <div class="flex-shrink-0 w-28">
+                        <div class="book-cover h-40 mb-2">
+                            <img src="https://images.unsplash.com/photo-1543002588-bfa74002ed7e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" class="w-full h-full object-cover" alt="书籍封面">
+                        </div>
+                        <div class="text-sm font-medium">流浪地球</div>
+                        <div class="text-xs text-gray-500">刘慈欣</div>
+                    </div>
+                    <div class="flex-shrink-0 w-28">
+                        <div class="book-cover h-40 mb-2">
+                            <img src="https://images.unsplash.com/photo-1610116306796-6fea9f4fae38?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" class="w-full h-full object-cover" alt="书籍封面">
+                        </div>
+                        <div class="text-sm font-medium">球状闪电</div>
+                        <div class="text-xs text-gray-500">刘慈欣</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 底部导航栏 -->
+        <div class="tab-bar">
+            <a href="home.html" class="tab-item">
+                <i class="fas fa-home"></i>
+                <span>首页</span>
+            </a>
+            <a href="bookshelf.html" class="tab-item">
+                <i class="fas fa-book"></i>
+                <span>书架</span>
+            </a>
+            <a href="discover.html" class="tab-item">
+                <i class="fas fa-compass"></i>
+                <span>发现</span>
+            </a>
+            <a href="profile.html" class="tab-item">
+                <i class="fas fa-user"></i>
+                <span>我的</span>
+            </a>
+        </div>
+    </div>
+    
+    <script src="js/app.js"></script>
+</body>
+</html> 

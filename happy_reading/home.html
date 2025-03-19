@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>快乐读书 - 首页</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- 状态栏 -->
+        <div class="status-bar">
+            <div class="status-bar-time">9:41</div>
+            <div class="status-bar-icons">
+                <i class="fas fa-signal"></i>
+                <i class="fas fa-wifi"></i>
+                <i class="fas fa-battery-full"></i>
+            </div>
+        </div>
+        
+        <!-- 内容区域 -->
+        <div class="content">
+            <!-- 搜索框 -->
+            <div class="flex items-center bg-gray-100 rounded-full px-4 py-2 mb-6">
+                <i class="fas fa-search text-gray-400 mr-2"></i>
+                <input type="text" placeholder="搜索书籍、作者" class="bg-transparent border-none focus:outline-none w-full text-sm">
+            </div>
+            
+            <!-- 分类导航 -->
+            <div class="category-nav">
+                <div class="category-item active" onclick="switchCategory(this)">精选</div>
+                <div class="category-item" onclick="switchCategory(this)">小说</div>
+                <div class="category-item" onclick="switchCategory(this)">历史</div>
+                <div class="category-item" onclick="switchCategory(this)">科技</div>
+                <div class="category-item" onclick="switchCategory(this)">生活</div>
+                <div class="category-item" onclick="switchCategory(this)">经管</div>
+                <div class="category-item" onclick="switchCategory(this)">社科</div>
+            </div>
+            
+            <!-- 推荐书籍轮播 -->
+            <div class="mb-8">
+                <h2 class="section-title">为你推荐 <span class="section-more">更多 ></span></h2>
+                <div class="relative overflow-hidden rounded-lg shadow-md h-44">
+                    <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" class="w-full h-full object-cover" alt="推荐书籍">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                        <div class="text-white font-bold text-xl">活着</div>
+                        <div class="text-gray-300 text-sm">余华</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 本周热门 -->
+            <div class="mb-8">
+                <h2 class="section-title">本周热门 <span class="section-more">查看全部 ></span></h2>
+                <div class="flex space-x-4 overflow-x-auto pb-2">
+                    <div class="flex-shrink-0 w-28" onclick="navigateToBookDetail()">
+                        <div class="book-cover h-40 mb-2">
+                            <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" class="w-full h-full object-cover" alt="书籍封面">
+                        </div>
+                        <div class="text-sm font-medium">三体</div>
+                        <div class="text-xs text-gray-500">刘慈欣</div>
+                    </div>
+                    <div class="flex-shrink-0 w-28">
+                        <div class="book-cover h-40 mb-2">
+                            <img src="https://images.unsplash.com/photo-1587876931567-564ce588bfbd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" class="w-full h-full object-cover" alt="书籍封面">
+                        </div>
+                        <div class="text-sm font-medium">人类简史</div>
+                        <div class="text-xs text-gray-500">尤瓦尔·赫拉利</div>
+                    </div>
+                    <div class="flex-shrink-0 w-28">
+                        <div class="book-cover h-40 mb-2">
+                            <img src="https://images.unsplash.com/photo-1532012197267-da84d127e765?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" class="w-full h-full object-cover" alt="书籍封面">
+                        </div>
+                        <div class="text-sm font-medium">解忧杂货店</div>
+                        <div class="text-xs text-gray-500">东野圭吾</div>
+                    </div>
+                    <div class="flex-shrink-0 w-28">
+                        <div class="book-cover h-40 mb-2">
+                            <img src="https://images.unsplash.com/photo-1543002588-bfa74002ed7e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" class="w-full h-full object-cover" alt="书籍封面">
+                        </div>
+                        <div class="text-sm font-medium">追风筝的人</div>
+                        <div class="text-xs text-gray-500">卡勒德·胡赛尼</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 新书上架 -->
+            <div>
+                <h2 class="section-title">新书上架 <span class="section-more">更多 ></span></h2>
+                <div class="space-y-4">
+                    <div class="flex items-center" onclick="navigateToBookDetail()">
+                        <div class="book-cover w-16 h-24 flex-shrink-0 mr-4">
+                            <img src="https://images.unsplash.com/photo-1621351183012-e2f9972dd9bf?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" class="w-full h-full object-cover" alt="书籍封面">
+                        </div>
+                        <div class="flex-1">
+                            <div class="font-medium">置身事内</div>
+                            <div class="text-xs text-gray-500 mb-1">兰小欢</div>
+                            <div class="text-xs text-gray-500 line-clamp-2">中国经济改革与政府行为深度解析，从体制内视角理解中国经济...</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="book-cover w-16 h-24 flex-shrink-0 mr-4">
+                            <img src="https://images.unsplash.com/photo-1610116306796-6fea9f4fae38?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" class="w-full h-full object-cover" alt="书籍封面">
+                        </div>
+                        <div class="flex-1">
+                            <div class="font-medium">被讨厌的勇气</div>
+                            <div class="text-xs text-gray-500 mb-1">岸见一郎/古贺史健</div>
+                            <div class="text-xs text-gray-500 line-clamp-2">阿德勒心理学入门，让你做自己，不惧怕被他人评判...</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="book-cover w-16 h-24 flex-shrink-0 mr-4">
+                            <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" class="w-full h-full object-cover" alt="书籍封面">
+                        </div>
+                        <div class="flex-1">
+                            <div class="font-medium">项目管理实战</div>
+                            <div class="text-xs text-gray-500 mb-1">斯科特·伯肯</div>
+                            <div class="text-xs text-gray-500 line-clamp-2">全面介绍项目管理的方法和技巧，帮助你成为一名出色的项目经理...</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 底部导航栏 -->
+        <div class="tab-bar">
+            <a href="home.html" class="tab-item active">
+                <i class="fas fa-home"></i>
+                <span>首页</span>
+            </a>
+            <a href="bookshelf.html" class="tab-item">
+                <i class="fas fa-book"></i>
+                <span>书架</span>
+            </a>
+            <a href="discover.html" class="tab-item">
+                <i class="fas fa-compass"></i>
+                <span>发现</span>
+            </a>
+            <a href="profile.html" class="tab-item">
+                <i class="fas fa-user"></i>
+                <span>我的</span>
+            </a>
+        </div>
+    </div>
+    
+    <script src="js/app.js"></script>
+</body>
+</html> 

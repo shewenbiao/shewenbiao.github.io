@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>快乐读书 - 原型展示</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background-color: #f5f5f7;
+        }
+        .prototype-container {
+            width: 375px;
+            overflow: hidden;
+            border-radius: 40px;
+            background: white;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            margin: 20px;
+            position: relative;
+        }
+        .prototype-frame {
+            width: 100%;
+            height: 812px;
+            border: none;
+        }
+        .prototype-label {
+            background: #1a1a1a;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            z-index: 100;
+        }
+    </style>
+</head>
+<body class="p-8">
+    <h1 class="text-3xl font-bold text-center mb-8">快乐读书 APP 原型</h1>
+    <p class="text-center mb-8 max-w-3xl mx-auto">下方展示了"快乐读书"APP的主要界面原型，包括首页、书架、阅读器、发现和个人中心等功能页面。</p>
+    
+    <div class="flex flex-wrap justify-center">
+        <!-- 首页 -->
+        <div class="prototype-container">
+            <div class="prototype-label">首页</div>
+            <iframe src="home.html" class="prototype-frame"></iframe>
+        </div>
+        
+        <!-- 书架 -->
+        <div class="prototype-container">
+            <div class="prototype-label">书架</div>
+            <iframe src="bookshelf.html" class="prototype-frame"></iframe>
+        </div>
+        
+        <!-- 阅读器 -->
+        <div class="prototype-container">
+            <div class="prototype-label">阅读器</div>
+            <iframe src="reader.html" class="prototype-frame"></iframe>
+        </div>
+        
+        <!-- 发现 -->
+        <div class="prototype-container">
+            <div class="prototype-label">发现</div>
+            <iframe src="discover.html" class="prototype-frame"></iframe>
+        </div>
+        
+        <!-- 个人中心 -->
+        <div class="prototype-container">
+            <div class="prototype-label">个人中心</div>
+            <iframe src="profile.html" class="prototype-frame"></iframe>
+        </div>
+        
+        <!-- 书籍详情 -->
+        <div class="prototype-container">
+            <div class="prototype-label">书籍详情</div>
+            <iframe src="book_detail.html" class="prototype-frame"></iframe>
+        </div>
+    </div>
+</body>
+</html> 

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>快乐读书 - 发现</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- 状态栏 -->
+        <div class="status-bar">
+            <div class="status-bar-time">9:41</div>
+            <div class="status-bar-icons">
+                <i class="fas fa-signal"></i>
+                <i class="fas fa-wifi"></i>
+                <i class="fas fa-battery-full"></i>
+            </div>
+        </div>
+        
+        <!-- 内容区域 -->
+        <div class="content">
+            <!-- 标题栏 -->
+            <div class="flex justify-between items-center mb-6">
+                <h1 class="text-xl font-bold">发现</h1>
+                <div class="flex space-x-4">
+                    <i class="fas fa-search text-gray-600"></i>
+                    <i class="fas fa-bell text-gray-600"></i>
+                </div>
+            </div>
+            
+            <!-- 分类导航 -->
+            <div class="category-nav mb-6">
+                <div class="category-item active" onclick="switchCategory(this)">推荐</div>
+                <div class="category-item" onclick="switchCategory(this)">书友圈</div>
+                <div class="category-item" onclick="switchCategory(this)">书单</div>
+                <div class="category-item" onclick="switchCategory(this)">活动</div>
+                <div class="category-item" onclick="switchCategory(this)">榜单</div>
+            </div>
+            
+            <!-- 热门话题 -->
+            <div class="mb-6">
+                <h2 class="section-title">热门话题 <span class="section-more">更多 ></span></h2>
+                <div class="flex overflow-x-auto space-x-3 pb-2">
+                    <div class="flex-shrink-0 w-28 h-28 relative rounded-lg overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1535905557558-afc4877a26fc?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" class="w-full h-full object-cover" alt="话题图片">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent flex items-end p-2">
+                            <div class="text-white text-xs font-medium">读书打卡挑战</div>
+                        </div>
+                    </div>
+                    <div class="flex-shrink-0 w-28 h-28 relative rounded-lg overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1513001900722-370f803f498d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" class="w-full h-full object-cover" alt="话题图片">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent flex items-end p-2">
+                            <div class="text-white text-xs font-medium">2023年度好书</div>
+                        </div>
+                    </div>
+                    <div class="flex-shrink-0 w-28 h-28 relative rounded-lg overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1519682337058-a94d519337bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" class="w-full h-full object-cover" alt="话题图片">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent flex items-end p-2">
+                            <div class="text-white text-xs font-medium">读书笔记分享</div>
+                        </div>
+                    </div>
+                    <div class="flex-shrink-0 w-28 h-28 relative rounded-lg overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" class="w-full h-full object-cover" alt="话题图片">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent flex items-end p-2">
+                            <div class="text-white text-xs font-medium">阅读时光</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 精选书单 -->
+            <div class="mb-6">
+                <h2 class="section-title">精选书单 <span class="section-more">全部 ></span></h2>
+                <div class="space-y-4">
+                    <div class="card p-0 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1550399105-c4db5fb85c18?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" class="w-full h-36 object-cover" alt="书单封面">
+                        <div class="p-4">
+                            <div class="font-medium mb-1">那些改变我世界观的书</div>
+                            <div class="flex justify-between items-center">
+                                <div class="flex items-center">
+                                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" class="w-6 h-6 rounded-full mr-2" alt="用户头像">
+                                    <span class="text-xs text-gray-500">阅读领航员</span>
+                                </div>
+                                <div class="text-xs text-gray-500">12本书</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card p-0 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1532012197267-da84d127e765?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" class="w-full h-36 object-cover" alt="书单封面">
+                        <div class="p-4">
+                            <div class="font-medium mb-1">2023年最值得一读的小说</div>
+                            <div class="flex justify-between items-center">
+                                <div class="flex items-center">
+                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" class="w-6 h-6 rounded-full mr-2" alt="用户头像">
+                                    <span class="text-xs text-gray-500">小说爱好者</span>
+                                </div>
+                                <div class="text-xs text-gray-500">8本书</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 书友动态 -->
+            <div>
+                <h2 class="section-title">书友动态</h2>
+                <div class="space-y-6">
+                    <div class="card">
+                        <div class="flex items-center mb-3">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" class="w-10 h-10 rounded-full mr-3" alt="用户头像">
+                            <div>
+                                <div class="font-medium">李明</div>
+                                <div class="text-xs text-gray-500">2小时前</div>
+                            </div>
+                        </div>
+                        <p class="text-sm mb-3">读完《三体》，刘慈欣的脑洞实在太大了，让我重新思考人类在宇宙中的位置。宇宙的黑暗森林法则太震撼了！推荐给所有科幻迷。</p>
+                        <div class="bg-gray-100 p-3 rounded-lg mb-3 flex">
+                            <div class="book-cover w-12 h-16 mr-3">
+                                <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" class="w-full h-full object-cover" alt="三体">
+                            </div>
+                            <div>
+                                <div class="font-medium text-sm">三体</div>
+                                <div class="text-xs text-gray-500">刘慈欣</div>
+                            </div>
+                        </div>
+                        <div class="flex justify-between text-gray-500 text-sm">
+                            <div><i class="far fa-heart mr-1"></i> 28</div>
+                            <div><i class="far fa-comment mr-1"></i> 12</div>
+                            <div><i class="far fa-share-square mr-1"></i> 分享</div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="flex items-center mb-3">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" class="w-10 h-10 rounded-full mr-3" alt="用户头像">
+                            <div>
+                                <div class="font-medium">王小花</div>
+                                <div class="text-xs text-gray-500">5小时前</div>
+                            </div>
+                        </div>
+                        <p class="text-sm mb-3">今天读完了《活着》，余华的这本书让我哭了好几次。生命的意义到底是什么？即使在最艰难的时刻，活着本身也是一种勇气。</p>
+                        <div class="bg-gray-100 p-3 rounded-lg mb-3 flex">
+                            <div class="book-cover w-12 h-16 mr-3">
+                                <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" class="w-full h-full object-cover" alt="活着">
+                            </div>
+                            <div>
+                                <div class="font-medium text-sm">活着</div>
+                                <div class="text-xs text-gray-500">余华</div>
+                            </div>
+                        </div>
+                        <div class="flex justify-between text-gray-500 text-sm">
+                            <div><i class="far fa-heart mr-1"></i> 56</div>
+                            <div><i class="far fa-comment mr-1"></i> 23</div>
+                            <div><i class="far fa-share-square mr-1"></i> 分享</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 底部导航栏 -->
+        <div class="tab-bar">
+            <a href="home.html" class="tab-item">
+                <i class="fas fa-home"></i>
+                <span>首页</span>
+            </a>
+            <a href="bookshelf.html" class="tab-item">
+                <i class="fas fa-book"></i>
+                <span>书架</span>
+            </a>
+            <a href="discover.html" class="tab-item active">
+                <i class="fas fa-compass"></i>
+                <span>发现</span>
+            </a>
+            <a href="profile.html" class="tab-item">
+                <i class="fas fa-user"></i>
+                <span>我的</span>
+            </a>
+        </div>
+    </div>
+    
+    <script src="js/app.js"></script>
+</body>
+</html> 
